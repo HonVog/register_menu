@@ -1,19 +1,52 @@
-# new_window
+# Базовый чтоб не косячить раздел 4.
+![id](https://images.universe.com/3ec98038-5c4f-4c14-9f38-3975ea9027af/-/progressive/yes/-/inline/yes/)
+* суть в том что, здесь пропишим что и чем являеться поможет понимать процессы
 
-## Project setup
+## Создаем более реальный и более продвинутый проект
+### Задача написать окно регистрации пользователя где он указвает данные а программа их запоминает
+#### 1. Подготовка
+* Для проекта используеться [element.io](https://element.eleme.io/#/en-US) для графического оформления
+* 1. Переходим на [CLI утановку](https://element.eleme.io/#/en-US/component/installation) и пользуемся инструкцией
 ```
-npm install
+npm i element-ui -S
 ```
+1. Вносим изменения в фаил main.js
+```js
+import Vue from 'vue';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import App from './App.vue';
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Vue.use(ElementUI);
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Vue.config.productionTip = false
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
+```
+#### 2. Создаем папку components  где будем хранить все компаненты проекта
+
+нам понадобяться для базы страницы
+1. Голова -  v-header.vue 
+2. Тело -  v-body.vue и 
+3. Ноги v-footer.vue 
+4. Для регистрации добавим фаил v-registr.vue
+
+#### Создаем эти файлы в папке components. Таким образом мы разделяем отвественость среди компанентов
+
+Дальше продумываем зависимости между компанентами если тяжело в голове ручку и бумашку в руки
+1. Голова и ноги будут автономы, но в голове флаг о регистрации
+2. Тело зависимо от регистрации, дочерним будет именно регистрация
+
+
+
+
+
+
+
+
+
+
+
+
