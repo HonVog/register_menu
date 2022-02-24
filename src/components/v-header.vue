@@ -1,16 +1,13 @@
 <template>
     <div class="v-header">
         <el-menu
-            :default-active="activeIndex2"
             class="el-menu-demo"
             mode="horizontal"
-            @select="handleSelect"
-            background-color="#545c64"
+            background-color="#315467"
             text-color="#fff"
             active-text-color="#ffd04b">
-                <el-menu-item index="">Processing Center</el-menu-item>
-                <el-menu-item index=""><a href="" target="">Orders</a></el-menu-item>
-
+                <el-menu-item index="">Главная страница</el-menu-item>
+                <el-menu-item index=""><a href="" target="">Что-то из сайта</a></el-menu-item>
         </el-menu>
     </div>
 </template>
@@ -21,3 +18,10 @@ export default({
     name: "v-header"
 })
 </script>
+
+<style scoped>
+.v-header{
+    margin: 0 20px;
+    border-radius: 1px;
+}
+</style>

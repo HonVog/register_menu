@@ -1,17 +1,34 @@
 <template>
     <div class="v-registr">
-        <el-form :label-position="labelPosition" label-width="100px" :model="formLabelAlign">
-            <el-form-item label="Name">
-                <el-input v-model="formLabelAlign.name"></el-input>
+        <el-form>
+            <h1 align="center">Авторизация на сайте</h1>
+            <el-form-item >
+                
+                <el-input type="text"
+                            placeholder="Имя пользователя" 
+                            v-model="name_User" 
+                            
+                >
+                    <template 
+                                slot="prepend">
+                        <i class="el-icon-s-custom"></i>
+                    </template>
+                </el-input>
             </el-form-item>
 
-            <el-form-item label="Activity zone">
-                <el-input v-model="formLabelAlign.region"></el-input>
+            <el-form-item>
+                <el-input       type="password"
+                             placeholder="Пароль"
+                              v-model="pasvord_User" 
+                              
+                >
+                    <template
+                                slot="prepend">
+                        <i class="el-icon-unlock"></i>
+                    </template>
+                </el-input>
             </el-form-item>
-
-            <el-form-item label="Activity form">
-                <el-input v-model="formLabelAlign.type"></el-input>
-            </el-form-item>
+            <el-button align="center" type="primary">Авторизироваться</el-button>
         </el-form>
     </div>
 </template>
@@ -22,12 +39,11 @@ export default {
     name: "v-registr",
      data(){
         return{
-          labelPosition: 'right',
-          formLabelAlign: {
-            name: '',
-            region: '',
-            type: '',     
-            },
+          name_User: "",
+          pasvord_User: "",
+
+
+
         }
   },
 
@@ -36,3 +52,36 @@ export default {
   methods:{},
 }
 </script>
+
+
+<style scoped>
+
+.v-registr{
+    margin: 10px;
+    width: 400px;
+    height: 260px;
+    border: 1px solid #0c0c0c;
+    padding: 10px 40px;
+    background-color:  #315467;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+.el-form h1{
+    padding: auto;
+    font-size: 20px;
+    margin: 0 0 40px 0; 
+    color: aliceblue;
+}
+
+
+.el-button{
+    width: 400px;
+    height: 50px;
+    border: #00B9BC;
+    background-color: #00B9BC;
+}
+
+
+</style>

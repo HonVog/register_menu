@@ -13,12 +13,10 @@ export default {
     components:{
         VRegistr,
     }
+
+
 }
 </script>
 
-<style>
-.v-body{
-    margin: 10px;
-    display: flex;   
-}
+<style scoped>
 </style>

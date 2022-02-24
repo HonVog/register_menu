@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <v-header/>
     <v-body/>
     <v-footer/>
@@ -18,8 +18,8 @@ export default {
         return{
         }
   },
-
   props:{},
+
   components: {
     VBody,
     VFooter,
@@ -29,4 +29,7 @@ export default {
   
 }
 </script>
+
+<style>
+</style>
 
