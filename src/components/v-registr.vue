@@ -6,7 +6,7 @@
                 
                 <el-input type="text"
                             placeholder="Имя пользователя" 
-                            v-model="name_User" 
+                            v-model="this_User.name_User" 
                             
                 >
                     <template 
@@ -19,7 +19,7 @@
             <el-form-item>
                 <el-input       type="password"
                              placeholder="Пароль"
-                              v-model="pasvord_User" 
+                              v-model="this_User.pasvord_User" 
                               
                 >
                     <template
@@ -28,7 +28,7 @@
                     </template>
                 </el-input>
             </el-form-item>
-            <el-button align="center" type="primary">Авторизироваться</el-button>
+            <el-button align="center" type="primary" @click="is_Users">Авторизироваться</el-button>
         </el-form>
     </div>
 </template>
@@ -39,17 +39,20 @@ export default {
     name: "v-registr",
      data(){
         return{
-          name_User: "",
-          pasvord_User: "",
-
-
-
+            this_User:{
+                name_User: "",
+                pasvord_User: "",
+            }
         }
-  },
+     },
 
-  props:{},
-  components: {},
-  methods:{},
+    props:{},
+    components: {},
+    methods:{
+        is_Users(){
+            this.$emit("is_user_arr_users", this.this_User);
+        }
+    },
 }
 </script>
 
