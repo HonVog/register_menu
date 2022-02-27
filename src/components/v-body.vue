@@ -1,14 +1,25 @@
 <template>
     <div class="v-body">
 
-        <v-registr 
+        <v-auth 
             @is_user_arr_users="new_user"
-
-            v-if="is_got_user"
-            
+            v-if="!isAuth"       
         />
-        
-        <div v-else>Привет пользователь</div>
+
+        <!--
+        <v-registr v-else-if="non_this_user"/>
+        Пока не реализованно
+
+        <v-base-info v-else
+            :this_user="user"
+        />
+        -->
+
+        <v-user 
+            v-else
+            
+            :this_user="user"
+        />
 
 
     </div>
@@ -16,43 +27,38 @@
 
 <script>
 
-import VRegistr from './v-registr.vue'
+//import VRegistr from './v-registr.vue'
+//import VBaseInfo from './data/v-baseInfo.vue';
+
+import VUser from './store/v-user.vue';
+import VAuth from './v-auth.vue'
+
 
 export default {
     name: "v-body",
     components:{
-        VRegistr,
+        VAuth,   
+        VUser,
+        //VRegistr,
+        //VBaseInfo,
     },
 
     data(){
         return{
             user:{},
+            isAuth: false,
         };
     },
-
     methods:{
-        new_user(data){
+        new_user(data){      
             this.user = data;
-        },
-
-        is_got_user()
-        {
-            console.log("Работает?")
-
-            if (user.new_user != "" && user.pasvord_User !=""){
-                return true;
-            }
-            else{
-                return false;
-            }
+            this.isAuth = true;
         },
     },
-
     with:{}
-
 }
 </script>
 
+<style>
 
-<style scoped>
 </style>

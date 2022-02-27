@@ -1,12 +1,7 @@
 <template>
     <div class="v-footer">
         <footer>
-             <Breadcrumb separator="/">
-                <Breadcrumb.Item>Homepage</Breadcrumb.Item>
-                <Breadcrumb.Item>Promotion Management</Breadcrumb.Item>
-                <Breadcrumb.Item>Promotion List</Breadcrumb.Item>
-                <Breadcrumb.Item>Promotion Detail</Breadcrumb.Item>
-            </Breadcrumb>
+            <h1>This footer sait</h1>
         </footer>
     </div>
 </template>

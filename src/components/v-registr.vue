@@ -1,35 +1,6 @@
 <template>
     <div class="v-registr">
-        <el-form>
-            <h1 align="center">Авторизация на сайте</h1>
-            <el-form-item >
-                
-                <el-input type="text"
-                            placeholder="Имя пользователя" 
-                            v-model="this_User.name_User" 
-                            
-                >
-                    <template 
-                                slot="prepend">
-                        <i class="el-icon-s-custom"></i>
-                    </template>
-                </el-input>
-            </el-form-item>
-
-            <el-form-item>
-                <el-input       type="password"
-                             placeholder="Пароль"
-                              v-model="this_User.pasvord_User" 
-                              
-                >
-                    <template
-                                slot="prepend">
-                        <i class="el-icon-unlock"></i>
-                    </template>
-                </el-input>
-            </el-form-item>
-            <el-button align="center" type="primary" @click="is_Users">Авторизироваться</el-button>
-        </el-form>
+        
     </div>
 </template>
 
@@ -38,21 +9,13 @@
 export default {
     name: "v-registr",
      data(){
-        return{
-            this_User:{
-                name_User: "",
-                pasvord_User: "",
-            }
-        }
+        return{}
+        
      },
 
     props:{},
     components: {},
-    methods:{
-        is_Users(){
-            this.$emit("is_user_arr_users", this.this_User);
-        }
-    },
+    methods:{},
 }
 </script>
 
