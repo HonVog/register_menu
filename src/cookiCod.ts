@@ -1,4 +1,74 @@
+import Exception from "../utils/Exception";
 
+/**
+ * 
+ "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var constants_1 = require("../../constants");
+var Exception_js_1 = require("../constants/Exception.js");
+var Object_1 = require("./Object");
+
+var Exception = (function () {
+    function Exception(type, component, message) {
+        this.exceptionTemplate = '$components: $message';
+        if (constants_1.PRODUCTION) {
+            return;
+        }
+        if (Object_1.ObjectUtils.Values(Exception_js_1.ExceptionType).indexOf(type) === -1) {
+            Exception._innerException('Передан не правильный уровень логирования');
+        }
+        if (!component) {
+            Exception._innerException('Не передано название компонента, который вызвал исключение');
+        }
+        if (!message) {
+            message = 'В работе компонента произошла ошибка';
+        }
+        this._process(type, component, message);
+    }
+    Exception._innerException = function (message) {
+        new Exception(exports.ExceptionType.ERROR, 'Exception', message);
+    };
+    Exception.prototype._process = function (type, component, message) {
+        if (constants_1.PRODUCTION) {
+            return;
+        }
+        if (type === exports.ExceptionType.LOG) {
+            console.log(this._prepareMessage(component, message));
+        }
+        else if (type === exports.ExceptionType.WARNING) {
+            console.warn(component, message);
+        }
+        else if (type === exports.ExceptionType.ERROR) {
+            throw this._prepareMessage(component, message);
+        }
+    };
+    Exception.prototype._prepareMessage = function (component, message) {
+        return this.exceptionTemplate
+            .replace('$components', component)
+            .replace('$message', message);
+    };
+    return Exception;
+}());
+exports.default = Exception;
+exports.ExceptionType = Exception_js_1.ExceptionType; 
+ 
+*/
+
+import {ExceptionType} from '../constants/Exception';
+
+/*
+/**
+ * Типы возможных исключений
+ *
+ * @type {{LOG: string, ERROR: string, WARNING: string}}
+ 
+
+ export const ExceptionType = {
+    LOG: 'log',
+    WARNING: 'warning',
+    ERROR: 'error'
+};
+*/
 
 /**
  * Базовый класс для всех хранилищ
