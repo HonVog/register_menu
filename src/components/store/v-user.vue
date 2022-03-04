@@ -9,7 +9,6 @@
 
 export default{
     name: "v-user",
-
     props:{
         this_user:{
             type: Object,

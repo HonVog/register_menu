@@ -1,37 +1,49 @@
 <template>
     <div class="v-body">
 
-        <v-auth 
-            @is_user_arr_users="new_user"
-            v-if="!isAuth"       
-        />
+        <transition name="slide-fade">
+            <v-auth 
+                @is_user_arr_users="authUser"
+                @userRegister="isRegistr"
+                v-show="isShowTime=='v-auth'"
+            />
+        </transition>
+
+        <transition name="slide-fade">
+            <v-registr
+                @breacAuth="isBreakRegister"
+                v-show="isShowTime=='v-registr'"
+            />
+        </transition>
+
+        <transition name="slide-fade">
+            <v-user 
+                v-show="isShowTime=='v-user'"
+                :this_user="user"
+            />
+        </transition>
 
         <!--
-        <v-registr v-else-if="non_this_user"/>
-        Пока не реализованно
-
         <v-base-info v-else
             :this_user="user"
         />
         -->
 
-        <v-user 
-            v-else
-            
-            :this_user="user"
-        />
-
+        
 
     </div>
 </template>
 
 <script>
 
-//import VRegistr from './v-registr.vue'
 //import VBaseInfo from './data/v-baseInfo.vue';
 
 import VUser from './store/v-user.vue';
-import VAuth from './v-auth.vue'
+import VAuth from './v-auth.vue';
+import {CookieStorage} from "../BazisConstrukt/BrowserStorageHelpers.js"
+import VRegistr from './v-registr.vue';
+
+var cookieStorage = new CookieStorage();
 
 
 export default {
@@ -39,7 +51,7 @@ export default {
     components:{
         VAuth,   
         VUser,
-        //VRegistr,
+        VRegistr,
         //VBaseInfo,
     },
 
@@ -47,18 +59,63 @@ export default {
         return{
             user:{},
             isAuth: false,
+            showComponent:'v-auth',
         };
     },
+
+    props:{
+        nameComponent:{
+            type: String,
+            default(){
+                return "v-user";
+            }
+        }
+     },
+
     methods:{
-        new_user(data){      
+        authUser(data){ 
             this.user = data;
-            this.isAuth = true;
+            this.isAuth = true; 
+
+            cookieStorage.set("user", this.user.name_User, true);
+            alert(cookieStorage._getCurrentTypeItem());
         },
+
+
+
+        isRegistr(data){
+            this.showComponent = data;
+        },
+
+        isBreakRegister(data){
+            this.showComponent = data;
+        }
     },
-    with:{}
+
+    computed:{
+        isShowTime: function(){
+            return this.showComponent;
+        }
+    },
+
 }
+
+
 </script>
 
+
 <style>
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active до версии 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
 
 </style>

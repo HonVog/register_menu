@@ -1,7 +1,5 @@
 <template>
     <div class="v-baseInfo">
-
-
     </div>
 </template>
 
@@ -9,7 +7,6 @@
 
 export default{
     name: "v-baseInfo",
-
 }
 </script>
 

@@ -2,7 +2,9 @@
   <div class="app">
     <v-header/>
     <v-body/>
+    <!--
     <v-footer/>
+    -->
   </div>
 </template>
 
@@ -23,7 +25,7 @@ export default {
   components: {
     VBody,
     VFooter,
-    VHeader
+    VHeader,
   },
   methods:{},
   
