@@ -1,0 +1,18 @@
+{
+  "UserBazis":[{
+      "id": 1,
+      "name": "",
+      "login": "",
+      "pasvord":"",
+      "postId": 1
+    }
+  ],
+  "UserDataBase":[{
+    "id": 0,
+    "name": "Admin",
+    "login": "Admin",
+    "pasvord":"zis1pasvord",
+    "postId": 0
+    }
+  ]
+}
