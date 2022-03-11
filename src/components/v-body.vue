@@ -27,9 +27,7 @@
         <v-base-info v-else
             :this_user="user"
         />
-        -->
-
-        
+        -->      
 
     </div>
 </template>
@@ -44,7 +42,6 @@ import {CookieStorage} from "../BazisConstrukt/BrowserStorageHelpers.js"
 import VRegistr from './v-registr.vue';
 
 var cookieStorage = new CookieStorage();
-
 
 export default {
     name: "v-body",
@@ -99,10 +96,7 @@ export default {
     },
 
 }
-
-
 </script>
-
 
 <style>
 

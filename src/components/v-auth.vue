@@ -1,6 +1,6 @@
 <template>
     <div class="v-auth" >
-        <el-form v-if="!quantityOfTimes" >
+        <el-form>
             <h1 align="center">Авторизация на сайте</h1>
             <el-form-item >            
                 <el-input type="text"

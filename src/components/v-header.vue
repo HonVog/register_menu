@@ -8,6 +8,7 @@
             active-text-color="#ffd04b">
                 <el-menu-item index="">Главная страница</el-menu-item>
                 <el-menu-item index=""><a href="" target="">Что-то из сайта</a></el-menu-item>
+                <el-menu-item v-show="this.$store.state.user.name!=''">Страница пользователя {{this.$store.state.user.name}}</el-menu-item>
         </el-menu>
     </div>
 </template>
